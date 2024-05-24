@@ -14,6 +14,10 @@ module.exports={
     module: {
         rules: [
             // loader的配置
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
         ]
     },
     // 插件
