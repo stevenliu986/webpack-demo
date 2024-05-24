@@ -25,7 +25,11 @@ module.exports={
             {
                 test: /\.s[ac]ss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
-            }
+            },
+            {
+                test: /\.styl$/,
+                loader: 'stylus-loader', // 将 Stylus 文件编译为 CSS
+            },
         ]
     },
     // 插件
