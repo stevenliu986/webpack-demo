@@ -52,7 +52,7 @@ module.exports = {
           },
           {
             test: /\.js$/,
-            exclude: /node_modules/,
+            exclude: "/node_modules/",
             loader: "babel-loader",
             options: {
               cacheDirectory: true, // 开启babel缓存
@@ -69,7 +69,7 @@ module.exports = {
     new ESLintPlugin({
       // 检查哪些文件
       context: path.resolve(__dirname, "src"), // 检查src目录下的文件
-      exclude: /node_modules/,
+      exclude: "/node_modules/",
       cache: true,
       cacheLocation: path.resolve(
         __dirname,
