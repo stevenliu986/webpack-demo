@@ -64,7 +64,9 @@ module.exports = {
       // 检查哪些文件
       context: path.resolve(__dirname, "src"), // 检查src目录下的文件
     }),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public/index.html"),
+    }),
   ],
   // 模式 - development/production
   mode: "development",
