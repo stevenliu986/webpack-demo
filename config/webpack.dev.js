@@ -8,7 +8,8 @@ module.exports = {
   // 输出
   output: {
     // 文件的输出路径
-    path: path.resolve(__dirname, "dist"), // 绝对路径
+    // 由于是开发模式下，所以不需要输出目录
+    path: undefined, // 绝对路径
     // 输出的文件名
     filename: "static/js/main.js",
     // 自动清空打包文件的输出目录
@@ -52,7 +53,7 @@ module.exports = {
           },
           {
             test: /\.js$/,
-            exclude: "/node_modules/",
+            exclude: /node_modules/,
             loader: "babel-loader",
             options: {
               cacheDirectory: true, // 开启babel缓存
@@ -68,16 +69,10 @@ module.exports = {
     // 插件的配置
     new ESLintPlugin({
       // 检查哪些文件
-      context: path.resolve(__dirname, "src"), // 检查src目录下的文件
-      exclude: "/node_modules/",
-      cache: true,
-      cacheLocation: path.resolve(
-        __dirname,
-        "../node_modules/.cache/eslintcache",
-      ),
+      context: path.resolve(__dirname, "../src"), // 检查src目录下的文件
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "public/index.html"),
+      template: path.resolve(__dirname, "../public/index.html"),
     }),
   ],
   // 开发服务器
