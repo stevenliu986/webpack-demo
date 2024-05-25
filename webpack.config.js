@@ -49,12 +49,10 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
+        loader: "babel-loader",
+        // options: { 这个选项可以在babel.config.js中进行配置
+        //   presets: ["@babel/preset-env"],
+        // },
       },
     ],
   },
