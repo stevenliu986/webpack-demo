@@ -8,7 +8,7 @@ module.exports = {
     // 文件的输出路径
     path: path.resolve(__dirname, "dist"), // 绝对路径
     // 输出的文件名
-    filename: "main.js",
+    filename: "js/main.js",
   },
   // 加载器
   module: {
