@@ -1,5 +1,6 @@
 const path = require("path");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // 入口
@@ -63,6 +64,7 @@ module.exports = {
       // 检查哪些文件
       context: path.resolve(__dirname, "src"), // 检查src目录下的文件
     }),
+    new HtmlWebpackPlugin(),
   ],
   // 模式 - development/production
   mode: "development",
