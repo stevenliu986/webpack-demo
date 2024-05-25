@@ -3,6 +3,19 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+function getStyleLoad(pre) {
+    return [MiniCssExtractPlugin.loader, "css-loader", {
+        loader: "postcss-loader",
+        options: {
+            postcssOptions: {
+                plugins: [
+                    "postcss-preset-env",
+                ]
+            }
+        }
+    }, pre].filter(Boolean);
+}
+
 module.exports = {
     // 入口
     entry: "./src/main.js", // 要使用相对路径
@@ -21,46 +34,19 @@ module.exports = {
             // loader的配置
             {
                 test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader", {
-                    loader: "postcss-loader",
-                    options: {
-                        postcssOptions: {
-                            plugins: [
-                                "postcss-preset-env",
-                            ]
-                        }
-                    }
-                }],
+                use: getStyleLoad(),
             },
             {
                 test: /\.less$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", {
-                    loader: "postcss-loader",
-                    options: {
-                        postcssOptions: {
-                            plugins: [
-                                "postcss-preset-env",
-                            ]
-                        }
-                    }
-                }, "less-loader"],
+                use: getStyleLoad("less-loader"),
             },
             {
                 test: /\.s[ac]ss$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", {
-                    loader: "postcss-loader",
-                    options: {
-                        postcssOptions: {
-                            plugins: [
-                                "postcss-preset-env",
-                            ]
-                        }
-                    }
-                }, "sass-loader"],
+                use: getStyleLoad("sass-loader"),
             },
             {
                 test: /\.styl$/,
-                loader: "stylus-loader", // 将 Stylus 文件编译为 CSS
+                use: getStyleLoad("stylus-loader"), // 将 Stylus 文件编译为 CSS
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
