@@ -39,7 +39,7 @@ module.exports = {
           },
         },
         generator: {
-          // 输出的图片名称, hash后面的10表示只取10位的哈希值
+          // 输出的图片名称, hash后面的10表示只取前10位的哈希值
           filename: "static/images/[hash:10].[ext][query]",
         },
       },
