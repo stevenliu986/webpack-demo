@@ -68,7 +68,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/index.html"),
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "static/css/[hash:10].[ext][query].css",
+    }),
   ],
   // 开发服务器
   devServer: {
