@@ -34,5 +34,11 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
-  }
+  },
+  "//": "浏览器兼容性定义， last 2 version - 最近的两个版本，> 1% - 兼容99%的浏览器，not dead - 还活跃的版本",
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "not dead"
+  ]
 }
